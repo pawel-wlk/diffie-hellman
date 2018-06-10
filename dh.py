@@ -30,7 +30,7 @@ def factorize(n):
 def find_generator(n):
     for m in range(2, n):
         for i in factorize(n):
-            if m ** ((n-1)/i) % n:
+            if fast_modulo_power(m, i/(n-1), n):
                 break
         else:
             return m
