@@ -42,7 +42,8 @@ number = 1000003
 if is_prime(number):
     print("{} is prime\n".format(1000003))
 
-print("Smallest generator is: {} \n".format(find_generator(number)))
+generator = find_generator(number)
+print("Smallest generator is: {} \n".format(generator))
 
 print("Diffie-Hellman protocol:\n")
 
@@ -50,8 +51,8 @@ try:
     a = int(input("Pick private number for person A: "))
     b = int(input("Pick private number for person B: "))
     
-    A = fast_modulo_power(2, a, number)
-    B = fast_modulo_power(2, b, number)
+    A = fast_modulo_power(generator, a, number)
+    B = fast_modulo_power(generator, b, number)
     
     A_s = fast_modulo_power(B, a, number)
     B_s = fast_modulo_power(A, b, number)
